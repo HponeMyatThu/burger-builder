@@ -6,7 +6,6 @@ import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 
-
 const INGREDIENT_PRICE = {
   salad: 0.5,
   cheese: 0.4,
@@ -36,7 +35,7 @@ class BurgerBuilder extends Component {
         return sum + el;
       }, 0);
 
-    this.setState({purchasable: sum > 0})
+    this.setState({ purchasable: sum > 0 });
   }
 
   addIngredientHandler = type => {
@@ -71,8 +70,16 @@ class BurgerBuilder extends Component {
   };
 
   purchasingHandler = () => {
-    this.setState({purchasing: true});
-  }
+    this.setState({ purchasing: true });
+  };
+
+  purchaseCancelHandler = () => {
+    this.setState({ purchasing: false });
+  };
+
+  purchaseContinueHandler = () => {
+    alert('You continue!');
+  };
 
   render() {
     const disableInfo = {
@@ -83,8 +90,16 @@ class BurgerBuilder extends Component {
     }
     return (
       <Auxilitary>
-        <Modal show={this.state.purchasing}>
-          <OrderSummary ingredient={this.state.ingredient} />
+        <Modal
+          show={this.state.purchasing}
+          modalClosed={this.purchaseCancelHandler}
+        >
+          <OrderSummary
+            ingredient={this.state.ingredient}
+            purchaseCancelled={this.purchaseCancelHandler}
+            purchaseContinued={this.purchaseContinueHandler}
+            price={this.state.totalPrice}
+          />
         </Modal>
         <Burger ingredient={this.state.ingredient} />
         <BuildControls
