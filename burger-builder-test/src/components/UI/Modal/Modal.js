@@ -12,9 +12,9 @@ class Model extends Component {
     );
   }
 
-  componentWillUpdate() {
-    console.log('[Model.js] componentWillUpdate');
-  }
+  // componentWillUpdate() {
+  //   console.log('[Model.js] componentWillUpdate');
+  // }
 
   render() {
     return (
