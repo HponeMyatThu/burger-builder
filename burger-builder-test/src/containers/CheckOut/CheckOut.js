@@ -15,8 +15,6 @@ const CheckOut = props => {
   const ingredient = location.state?.ingredient;
   const totalPrice = location.state?.totalPrice;
 
-  console.log(ingredient, totalPrice);
-
   const CheckoutContinuedHandler = () => {
     navigate('/checkout/contact-data', { state : {ingredient, totalPrice}});
   };

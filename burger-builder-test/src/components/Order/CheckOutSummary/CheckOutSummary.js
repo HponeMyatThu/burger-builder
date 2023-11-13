@@ -5,7 +5,6 @@ import Button from '../../UI/Button/Button';
 import classes from '../CheckOutSummary/CheckOutSummary.module.css';
 
 export default function CheckOutSummary(props) {
-    console.log('[CheckOutSummary.js]',props.ingredient);
   return (
     <div className={classes.CheckOutSummary}>
         <h1>We hope it's tastes well!</h1>
