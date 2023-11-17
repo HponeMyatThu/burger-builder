@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { connect } from 'react-redux';
 import Button from '../../../components/UI/Button/Button';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import classes from '../ContactData/ContactData.module.css';
@@ -93,7 +94,7 @@ const ContactData = props => {
     }
 
     const order = {
-      ingredients: props.ingredient,
+      ingredients: props.ings,
       price: props.price,
       orderData: fData,
     };
@@ -191,4 +192,11 @@ const ContactData = props => {
   );
 };
 
-export default ContactData;
+const mapStateToProps = state => {
+  return{
+    ings: state.ingredient,
+    price: state.totalPrice
+  }
+}
+
+export default connect(mapStateToProps)(ContactData);

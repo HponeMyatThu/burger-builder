@@ -108,7 +108,6 @@ const BurgerBuilder = props => {
 };
 
 const mapStateToProps = state => {
-  console.log('ings', state.ingredient, 'price', state.totalPrice);
   return{
     ings: state.ingredient,
     price: state.totalPrice
